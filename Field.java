@@ -1,8 +1,10 @@
 public class Field {
     private static String[][] matrix = new String[3][3];
+
     public String[][] getField() {
         return matrix;
     }
+
     public static final String NOT_SYMB = "*";
 
     public void initMatrix() {

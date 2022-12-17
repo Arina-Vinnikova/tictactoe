@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class GameLogic {
-    public static final String FIRST_PLAYER = "X";
-    public static final String SECOND_PLAYER = "O";
+    private final String FIRST_PLAYER = "X";
+    private final String SECOND_PLAYER = "O";
     Field field = new Field();
     String[][] matrix = field.getField();
 
