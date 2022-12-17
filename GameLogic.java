@@ -4,6 +4,7 @@ public class GameLogic {
     public static final String FIRST_PLAYER = "X";
     public static final String SECOND_PLAYER = "O";
     Field field = new Field();
+    String[][] matrix = field.getField();
 
 
     public void players() {
@@ -36,7 +37,7 @@ public class GameLogic {
     private boolean notWin() {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
-                if (Field.matrix[i][j] == Field.NOT_SYMB)
+                if (matrix[i][j] ==field.NOT_SYMB)
                     return false;
         return true;
     }
@@ -51,36 +52,36 @@ public class GameLogic {
             y = num.nextInt() - 1;
         }
         while (isCell(x, y));
-        Field.matrix[x][y] = symb;
+        matrix[x][y] = symb;
     }
 
     private boolean isCell(int x, int y) {
         if (x < 0 || y < 0 || x > 3 - 1 || y > 3 - 1) {
             return false;
         }
-        return Field.matrix[x][y] != Field.NOT_SYMB;
+        return matrix[x][y] != field.NOT_SYMB;
     }
 
     private boolean checkWin(String symb) {
         {
             for (int i = 0; i < 3; i++) {
-                if (Field.matrix[i][0] == symb && Field.matrix[i][1] == symb && Field.matrix[i][2] == symb) {
+                if (matrix[i][0] == symb && matrix[i][1] == symb && matrix[i][2] == symb) {
                     return true;
                 }
             }
         }
         {
             for (int j = 0; j < 3; j++) {
-                if (Field.matrix[0][j] == symb && Field.matrix[1][j] == symb && Field.matrix[2][j] == symb) {
+                if (matrix[0][j] == symb && matrix[1][j] == symb && matrix[2][j] == symb) {
                     return true;
                 }
             }
         }
         {
-            if (Field.matrix[0][0] == symb && Field.matrix[1][1] == symb && Field.matrix[2][2] == symb) {
+            if (matrix[0][0] == symb && matrix[1][1] == symb && matrix[2][2] == symb) {
                 return true;
             }
-            if (Field.matrix[0][2] == symb && Field.matrix[1][1] == symb && Field.matrix[2][0] == symb) {
+            if (matrix[0][2] == symb && matrix[1][1] == symb && matrix[2][0] == symb) {
                 return true;
             }
         }
